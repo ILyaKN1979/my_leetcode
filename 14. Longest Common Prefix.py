@@ -9,7 +9,7 @@ strs = ["ab", "a"]
 
 res=''
 fl_stop=0
-
+#test
 
 if  len(strs)==1:
     res=strs[0]
