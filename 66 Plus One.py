@@ -2,7 +2,7 @@
 """
 Created on Wed Feb 23 18:52:11 2022
 
-@author: Ilya
+@author: Ilya K
 """
 
 digits = [9]
