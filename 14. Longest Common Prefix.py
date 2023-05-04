@@ -2,7 +2,7 @@
 """
 Created on Wed Aug  3 06:14:50 2022
 
-@author: IlYA
+@author: IlYA K
 """
 
 strs = ["ab", "a"]
