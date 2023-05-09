@@ -2,50 +2,38 @@
 """
 Created on Wed Aug  3 06:14:50 2022
 
+Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+
+
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+
+
 @author: IlYA K
 """
 
-strs = ["ab", "a"]
+strs = ["flower","flow","flight"]
 
-res=''
-fl_stop=0
-#test
-
-if  len(strs)==1:
-    res=strs[0]
-    fl_stop=1
-
-
-for j in range(0, len(strs[0])):
-    
-    counter=0   
-    
-    if (fl_stop == 0):
-         
-        for i in range(1, len(strs)): 
-            
-            len_first=len(strs[0])
-            
-            len_next= len(strs[i])
-            
+def longest_common_prefix(strs):
+    if not strs:
+        return ""
            
-            if len_next-j>0:
-                
-                if strs[0][j] == strs[i][j]:                
-     
-                    counter=counter+1
-                    
-                else:
-                    
-                    fl_stop=1
-                    break
-        
-                if counter == len(strs)-1: 
-                    res=res+strs[i][j]
-                    #fl_stop=1
-           
-    
-    else:
-        break        
-    
-print(res)
+    prefix = strs[0]
+    for string in strs[1:]:
+        while string[:len(prefix)] != prefix:
+            prefix = prefix[:len(prefix)-1]
+            if not prefix:
+                return ""
+    return prefix
+
+print(longest_common_prefix(strs))
