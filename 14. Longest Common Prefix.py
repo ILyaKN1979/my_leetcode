@@ -29,6 +29,7 @@ def longest_common_prefix(strs):
         return ""
            
     prefix = strs[0]
+
     for string in strs[1:]:
         while string[:len(prefix)] != prefix:
             prefix = prefix[:len(prefix)-1]
