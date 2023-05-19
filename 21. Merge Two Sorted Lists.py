@@ -29,70 +29,29 @@ class ListNode:
         self.next = next
 
 
-
-
 def mergeTwoList(list1, list2):
+    dummy = ListNode(0)
+    curr = dummy
     
-    def addNode(head, new_val):
-        new_node = ListNode(new_val)
-        if not head:  # If the list is empty, make the new node the head
-            head = new_node
+    # Traverse both lists until one of them reaches the end
+    while list1 and list2:
+        if list1.val <= list2.val:
+            curr.next = list1
+            list1 = list1.next
         else:
-            current = head
-            while current.next:
-                current = current.next
-    
-            current.next = new_node
-        return head
-    
-    new = True 
-    while list1 or list2:
-        
-        if list1 and list2:
-            
-            if list1.val <= list2.val:
-                l_fl1= True
-                l_fl2= False
-                if new == True:
-                    l_n = ListNode(list1.val)
-                    new = False
-                else:
-                    l_n=addNode(l_n , list1.val)
-            else:
-                l_fl2= True
-                l_fl1= False
-                if new == True:
-                   l_n = ListNode(list2.val)
-                   new = False
-                else:
-                    addNode(l_n , list2.val)
-        else:
-              if list1:
-                 l_fl1= True
-                 l_fl2= False
-                 
-                 if new == True:
-                     l_n = ListNode(list1.val)
-                     new = False
-                 else:
-                     l_n=addNode(l_n , list1.val) 
-              if list2:
-                l_fl2= True
-                l_fl1= False
-                if new == True:
-                    l_n = ListNode(list2.val)
-                    new = False
-                else:
-                   l_n=addNode(l_n , list2.val) 
-   
-         
-        if list2 and l_fl2:
+            curr.next = list2
             list2 = list2.next
-        if list1 and l_fl1:
-            list1 = list1.next   
-          
+        curr = curr.next
+    
+    # Append the remaining nodes of the non-empty list
+    if list1:
+        curr.next = list1
+    if list2:
+        curr.next = list2
+    
+    return dummy.next
 
-    return l_n
+
 
 # test
 l1 = [1,2,4] 
