@@ -1,4 +1,4 @@
-# my_leetcode
+# My_leetcode
 
 ## LeetCode Solutions
 This repository contains my solutions to various LeetCode tasks. LeetCode is a popular platform that offers a collection of coding challenges to help improve programming skills.
