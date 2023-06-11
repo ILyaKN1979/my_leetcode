@@ -80,7 +80,7 @@ class UndergroundSystem:
     def checkOut(self, id, stationName, t):
         start_station, start_time = self.check_ins[id]
         travel_key = (start_station, stationName)
-        travel_time = t - start_time
+        travel_time =   - start_time
         
         if travel_key in self.travel_times:
             total_time, count = self.travel_times[travel_key]
