@@ -36,7 +36,7 @@ Finally, player 1 has more score (234) than player 2 (12), so you need to return
 """
 
 nums = [1,5,233,5, 33,7]
-nums = [1,6,3]
+#nums = [1,6,3]
 
 
 def PredictTheWinner(nums) -> bool:
@@ -55,7 +55,11 @@ def PredictTheWinner(nums) -> bool:
                 choose_left = nums[i] - dp[i + 1][j]
                 choose_right = nums[j] - dp[i][j - 1]
                 dp[i][j] = max(choose_left, choose_right)
-                
+                print(str(i)+'--'+str(j))
+                print(choose_left)
+                print(choose_right)
+                print(dp)
+                print('--------------')
         # Player 1 wins if their optimal score difference is non-negative.
         return dp[0][n - 1] >= 0
 

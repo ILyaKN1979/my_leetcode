@@ -23,12 +23,14 @@ Output: 99
 """
 
 nums = [0,99,0,1,0,1,1]
+nums = [2,2,3,2]
 
 res = 0
 tmp = 0
 
 for num in nums:
     res = (res ^ num) & ~tmp
+    #print(res)
     tmp = (tmp ^ num) & ~res
 
 
